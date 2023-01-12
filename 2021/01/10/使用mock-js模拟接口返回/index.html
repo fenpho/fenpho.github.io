@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+Theme By Fenpho
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>使用mock.js模拟接口返回 | Fenpho</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Fenpho">
+    <meta name="author" content="Fenpho">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Fenpho" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">首页</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">归档</a></li>
+            <!-- Dropdown Menu -->
+			 
+            
+        	<li>
+        		<a class="sb-toggle-submenu">分类<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/前端漫谈/" class="animsition-link">前端漫谈<small>(18)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">友情链接<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="https://fenpho.github.io/" class="animsition-link">Fenpho</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about" class="animsition-link" title="about">关于</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">订阅</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Fenpho</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/fenpho" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">更多</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2021-01-10T12:29:04.000Z" itemprop="datePublished">
+          2021-01-10
+      </time>
+    
+    
+    | 
+    <a href='/tags/Mock-接口/'>Mock, 接口</a>
+    
+    
+</span>
+                <h1>使用mock.js模拟接口返回</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h3 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h3><p><code>npm install mockjs</code></p>
+<p>src目录同级别，新建mock目录，新建index.js文件</p>
+<h3 id="二、新建入口文件"><a href="#二、新建入口文件" class="headerlink" title="二、新建入口文件"></a>二、新建入口文件</h3><p>遍历mock目录下文件，动态注册所有mock接口</p>
+<p>mock/index.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 首先引入Mock</span></span><br><span class="line"><span class="keyword">const</span> Mock = <span class="built_in">require</span>(<span class="string">&#x27;mockjs&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置拦截ajax请求的相应时间</span></span><br><span class="line">Mock.setup(&#123;</span><br><span class="line">  timeout: <span class="string">&#x27;200-600&#x27;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> configArray = [];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用webpack的require.context()遍历所有mock文件</span></span><br><span class="line"><span class="keyword">const</span> files = <span class="built_in">require</span>.context(<span class="string">&#x27;.&#x27;</span>, <span class="literal">true</span>, <span class="regexp">/index.js$/</span>);</span><br><span class="line">files.keys().forEach(<span class="function">(<span class="params">key</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (key === <span class="string">&#x27;./index.js&#x27;</span>) <span class="keyword">return</span>;</span><br><span class="line">  configArray = configArray.concat(files(key).default);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 注册所有的mock服务</span></span><br><span class="line">configArray.forEach(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!item || item === <span class="literal">undefined</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> [path, target] <span class="keyword">of</span> <span class="built_in">Object</span>.entries(item)) &#123;</span><br><span class="line">    <span class="keyword">let</span> url = <span class="built_in">window</span>.syncProjectProperties.BASE_URL + path;</span><br><span class="line">    Mock.mock(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">&#x27;^&#x27;</span> + url), target);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="三、示例"><a href="#三、示例" class="headerlink" title="三、示例"></a>三、示例</h3><p>新建API文件夹，在该目录下新建模块接口模拟</p>
+<p>mock/api/examples/index.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: AI模块相关接口</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 引入mock数据</span></span><br><span class="line"><span class="keyword">import</span> &#123; queryCatalogTreeContent, querySituationTreeIndexList &#125; <span class="keyword">from</span> <span class="string">&#x27;./data&#x27;</span>;</span><br><span class="line"><span class="comment">// 导出mock相关api与方法</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="comment">// 需要mock的api地址</span></span><br><span class="line">  <span class="comment">// option =&gt; body 报文；type：请求方式；url：请求地址</span></span><br><span class="line">  <span class="string">&#x27;service/ai/dict/queryCatalogTreeContent&#x27;</span>: <span class="function"><span class="params">options</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> sendData(<span class="literal">true</span>, options,<span class="string">&#x27;queryCatalogTreeContent&#x27;</span>);</span><br><span class="line">    <span class="comment">// return sendData(false, options,&#x27;queryCatalogTreeContent&#x27;);</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&#x27;service/ai/scence/querySituationTreeIndexList&#x27;</span>: <span class="function"><span class="params">options</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> sendData(<span class="literal">true</span>, options,<span class="string">&#x27;querySituationTreeIndexList&#x27;</span>);</span><br><span class="line">    <span class="comment">// return sendData(false, options,&#x27;querySituationTreeIndexList&#x27;);</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: // 获取列表数据</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendData</span> (<span class="params">type = <span class="literal">true</span>, options, name</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 模拟正确返回</span></span><br><span class="line">  <span class="keyword">if</span> (type) &#123;</span><br><span class="line">    <span class="keyword">const</span> request = <span class="built_in">JSON</span>.parse(options.body)</span><br><span class="line">    <span class="keyword">switch</span> (name) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;queryCatalogTreeContent&#x27;</span>: <span class="keyword">const</span> response = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(queryCatalogTreeContent.success)); response.body.default.dataset = response.body.default[request.body.default.catalog_value]; <span class="keyword">return</span> response;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;querySituationTreeIndexList&#x27;</span>: <span class="keyword">return</span> querySituationTreeIndexList.success;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 模拟错误返回</span></span><br><span class="line">  <span class="keyword">switch</span> (name) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;queryCatalogTreeContent&#x27;</span>: <span class="keyword">return</span> queryCatalogTreeContent.error;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;querySituationTreeIndexList&#x27;</span>: <span class="keyword">return</span> querySituationTreeIndexList.error;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>mock/api/examples/data.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: AI模块相关接口数据</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// xxx</span></span><br><span class="line"><span class="keyword">const</span> queryCatalogTreeContent = &#123;</span><br><span class="line">  success: &#123;</span><br><span class="line">    <span class="string">&#x27;header&#x27;</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;default&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;success&#x27;</span>: <span class="string">&#x27;true&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;message&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&#x27;body&#x27;</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;default&#x27;</span>: &#123;</span><br><span class="line">        company_type: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">&#x27;value&#x27;</span>: <span class="string">&#x27;DSI06657B8B4DBC4B8796516FDF6B241FAD&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;label&#x27;</span>: <span class="string">&#x27;股份公司&#x27;</span></span><br><span class="line">          &#125;,</span><br><span class="line">        ],</span><br><span class="line">        certificate: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">&quot;value&quot;</span>: <span class="string">&quot;certificate&quot;</span>,</span><br><span class="line">            <span class="string">&quot;label&quot;</span>: <span class="string">&quot;增值业务电信许可证&quot;</span></span><br><span class="line">          &#125;,</span><br><span class="line">        ],</span><br><span class="line">        certificate_level: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">&quot;value&quot;</span>: <span class="string">&quot;DSIE3738D433EE74F18933D0182EF351709&quot;</span>,</span><br><span class="line">            <span class="string">&quot;label&quot;</span>: <span class="string">&quot;国际&quot;</span></span><br><span class="line">          &#125;,</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  error: &#123;</span><br><span class="line">    header: &#123;</span><br><span class="line">      <span class="keyword">default</span>: &#123;</span><br><span class="line">        success: <span class="string">&#x27;false&#x27;</span>,</span><br><span class="line">        message: <span class="string">&#x27;服务器错误&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> querySituationTreeIndexList = &#123;</span><br><span class="line">  success: &#123;</span><br><span class="line">    <span class="string">&#x27;header&#x27;</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;default&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;success&#x27;</span>: <span class="string">&#x27;true&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;message&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&#x27;body&#x27;</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;default&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;reg_date&#x27;</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;注册时间&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;multiple&#x27;</span>: <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;placeholder&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">          &#125;</span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&#x27;company_type&#x27;</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;企业类型&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;multiple&#x27;</span>: <span class="string">&#x27;0&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;placeholder&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">          &#125;</span><br><span class="line">        ],</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  error: &#123;</span><br><span class="line">    header: &#123;</span><br><span class="line">      <span class="keyword">default</span>: &#123;</span><br><span class="line">        success: <span class="string">&#x27;false&#x27;</span>,</span><br><span class="line">        message: <span class="string">&#x27;服务器错误&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">  queryCatalogTreeContent,</span><br><span class="line">  querySituationTreeIndexList</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2021/06/12/vue%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1/" style="float: left;">
+        ← vue组件间通信
+    </a>
+    
+    
+    <a class="pull-right" href="/2020/07/07/Vue-cli3%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E6%B7%BB%E5%8A%A0IE%E5%85%BC%E5%AE%B9/">
+        Vue-cli3以上版本添加IE兼容 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2017<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Fenpho. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="#" style="color: #767D84">Fenpho</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/fenpho" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

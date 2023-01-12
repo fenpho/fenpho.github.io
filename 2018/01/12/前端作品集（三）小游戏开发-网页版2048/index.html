@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+Theme By Fenpho
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>前端作品集（三）小游戏开发--网页版2048 | Fenpho</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Fenpho">
+    <meta name="author" content="Fenpho">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Fenpho" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">首页</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">归档</a></li>
+            <!-- Dropdown Menu -->
+			 
+            
+        	<li>
+        		<a class="sb-toggle-submenu">分类<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/前端漫谈/" class="animsition-link">前端漫谈<small>(18)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">友情链接<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="https://fenpho.github.io/" class="animsition-link">Fenpho</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about" class="animsition-link" title="about">关于</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">订阅</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Fenpho</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/fenpho" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">更多</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-01-12T13:12:16.000Z" itemprop="datePublished">
+          2018-01-12
+      </time>
+    
+    
+    | 
+    <a href='/tags/作品/'>作品</a>
+    
+    
+</span>
+                <h1>前端作品集（三）小游戏开发--网页版2048</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>有一款名为2048的游戏，设计简单，操作容易，上手快且经久不衰，那么它背后实现的原理又是什么呢？这篇文章是在慕课网学习<a target="_blank" rel="noopener" href="http://www.imooc.com/learn/76">慕课网2048私人订制</a>的产物。</p>
+<h3 id="一、游戏架构"><a href="#一、游戏架构" class="headerlink" title="一、游戏架构"></a>一、游戏架构</h3><p><img src="1.png" alt="游戏架构"><br>有上图可知，整个2048游戏共由五部分组成，分别是HTML和CSS负责页面的展示效果，JS控制游戏运行的逻辑，动画效果增加游戏的可玩性，还有一些底层的函数封装，提供个逻辑层调用，数据较为简单并入逻辑中。所以有以下的文件列表：</p>
+<p><img src="2.png" alt="文件列表"></p>
+<h3 id="二、页面UI的书写"><a href="#二、页面UI的书写" class="headerlink" title="二、页面UI的书写"></a>二、页面UI的书写</h3><p>1-1. HTML代码<br>游戏界面设计的较为简单，只要一个标题，使用h1标签，一个新游戏，使用a标签，一个得分使用p标签，剩下的就是游戏的小方格了，具体代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>2048<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:newgame();&quot;</span> <span class="attr">id</span>=<span class="string">&quot;newgamebutton&quot;</span> <span class="attr">class</span>=<span class="string">&quot;newgamebutton&quot;</span>&gt;</span>New game<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>score: <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;score&quot;</span>&gt;</span>0<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;grid-container&quot;</span> <span class="attr">class</span>=<span class="string">&quot;grid-container&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-cell&quot;</span> <span class="attr">id</span>=<span class="string">&quot;grid-cell-0-0&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-cell&quot;</span> <span class="attr">id</span>=<span class="string">&quot;grid-cell-0-1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-cell&quot;</span> <span class="attr">id</span>=<span class="string">&quot;grid-cell-0-2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-cell&quot;</span> <span class="attr">id</span>=<span class="string">&quot;grid-cell-0-3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-cell&quot;</span> <span class="attr">id</span>=<span class="string">&quot;grid-cell-1-0&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-cell&quot;</span> <span class="attr">id</span>=<span class="string">&quot;grid-cell-1-1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-cell&quot;</span> <span class="attr">id</span>=<span class="string">&quot;grid-cell-1-2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-cell&quot;</span> <span class="attr">id</span>=<span class="string">&quot;grid-cell-1-3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-cell&quot;</span> <span class="attr">id</span>=<span class="string">&quot;grid-cell-2-0&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-cell&quot;</span> <span class="attr">id</span>=<span class="string">&quot;grid-cell-2-1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-cell&quot;</span> <span class="attr">id</span>=<span class="string">&quot;grid-cell-2-2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-cell&quot;</span> <span class="attr">id</span>=<span class="string">&quot;grid-cell-2-3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-cell&quot;</span> <span class="attr">id</span>=<span class="string">&quot;grid-cell-3-0&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-cell&quot;</span> <span class="attr">id</span>=<span class="string">&quot;grid-cell-3-1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-cell&quot;</span> <span class="attr">id</span>=<span class="string">&quot;grid-cell-3-2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-cell&quot;</span> <span class="attr">id</span>=<span class="string">&quot;grid-cell-3-3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>1-2. CSS部分<br>该部分主要写页面的样式，头部很简单，让宽度为100%，然后是头部中的每一个元素都居中，由于头部元素的宽度都不大，可以直接写死，如100px，然后采用margin: 0 auto进行居中即可<br>游戏的操作界面的话随意写一个固定宽度，让该样式在自己的浏览器里面看起来舒服就行，后面需要使用js重新计算并渲染宽度。详细的<a target="_blank" rel="noopener" href="https://github.com/fenpho/works/blob/master/games/2048/index.css">CSS代码</a></p>
+<h3 id="三、游戏逻辑开发"><a href="#三、游戏逻辑开发" class="headerlink" title="三、游戏逻辑开发"></a>三、游戏逻辑开发</h3><p>3-1. 页面加载完成后执行两个函数，如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	prepareForMobile();</span><br><span class="line">	newgame();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>其中prepareForMobile()是用来重置整个游戏操作界面的宽高的，代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prepareForMobile</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(documentWidth &gt; <span class="number">410</span>)&#123;</span><br><span class="line">		gridcontainerWidth = <span class="number">410</span>;</span><br><span class="line">		cellSpace = <span class="number">10</span>;</span><br><span class="line">		cellSlideLength = <span class="number">90</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	$(<span class="string">&#x27;#grid-container&#x27;</span>).css(<span class="string">&#x27;width&#x27;</span>, gridcontainerWidth - <span class="number">2</span> * cellSpace);</span><br><span class="line">	$(<span class="string">&#x27;#grid-container&#x27;</span>).css(<span class="string">&#x27;height&#x27;</span>, gridcontainerWidth - <span class="number">2</span> * cellSpace);</span><br><span class="line">	$(<span class="string">&#x27;#grid-container&#x27;</span>).css(<span class="string">&#x27;padding&#x27;</span>, cellSpace);</span><br><span class="line">	$(<span class="string">&#x27;#grid-container&#x27;</span>).css(<span class="string">&#x27;border-radius&#x27;</span>, <span class="number">0.02</span> * gridcontainerWidth);</span><br><span class="line"></span><br><span class="line">	$(<span class="string">&#x27;.grid-cell&#x27;</span>).css(<span class="string">&#x27;width&#x27;</span>, cellSlideLength);</span><br><span class="line">	$(<span class="string">&#x27;.grid-cell&#x27;</span>).css(<span class="string">&#x27;height&#x27;</span>, cellSlideLength);</span><br><span class="line">	$(<span class="string">&#x27;.grid-cell&#x27;</span>).css(<span class="string">&#x27;border-radius&#x27;</span>, <span class="number">0.02</span> * cellSlideLength);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>newgame()则是游戏的入口程序，每次点击新游戏的时候也会执行该函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">newgame</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	init();</span><br><span class="line">	generateOneNumber();</span><br><span class="line">	generateOneNumber();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该函数内容包含两个模块，一个是初始化模块，初始化模块里面做了3件事：</p>
+<ol>
+<li>通过jQuery让每一个数字的背景归位。</li>
+<li>将所有数字初始化为零。</li>
+<li>重新渲染页面</li>
+</ol>
+<p>另一个是生成随机数字的模块，核心是通过Math.random生成随机数字。</p>
+<p>3-2. 游戏循环</p>
+<p><img src="3.png" alt="image.png"><br> 毫无疑问，2048是属于基于玩家响应的游戏循环（图中文字错误），所以该有对用的操作，以及操作对应的响应。这一部分主要有js的时间监听完成</p>
+<ol>
+<li>键盘事件监听<br>主要针对键盘上面的上下左右四个按键进行监听，当按键按下时，执行响应的函数，并且生成新的随机数，随后判断游戏界面中是否还存在空格，如果满了，是否可以进行移动，确定游戏是继续循环还是结束。下面以左按钮事件为例：</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).keydown(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">switch</span>(event.keyCode)&#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">37</span>:<span class="comment">//left</span></span><br><span class="line">			event.preventDefault();</span><br><span class="line">			<span class="keyword">if</span>(moveLeft())&#123;</span><br><span class="line">				<span class="built_in">setTimeout</span>(generateOneNumber, <span class="number">210</span>);</span><br><span class="line">				<span class="built_in">setTimeout</span>(isgameover, <span class="number">300</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">moveLeft</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!canMoveLeft(board))&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//move left</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">1</span>; j &lt; <span class="number">4</span>; j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(board[i][j] != <span class="number">0</span>)&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">var</span> k = <span class="number">0</span>; k &lt; j; k++)&#123;</span><br><span class="line">					<span class="keyword">if</span>(board[i][k] == <span class="number">0</span> &amp;&amp; noBlockHorizontal(i, k, j, board))&#123;</span><br><span class="line">						<span class="comment">//move</span></span><br><span class="line">						showMoveAnimation(i, j, i, k);</span><br><span class="line">						board[i][k] = board[i][j];</span><br><span class="line">						board[i][j] = <span class="number">0</span>;</span><br><span class="line">						<span class="keyword">continue</span>;</span><br><span class="line">					&#125;<span class="keyword">else</span> <span class="keyword">if</span>(board[i][k] == board[i][j] &amp;&amp; noBlockHorizontal(i, k, j, board) &amp;&amp; !hasConflicted[i][k])&#123;</span><br><span class="line">						<span class="comment">//move</span></span><br><span class="line">						showMoveAnimation(i, j, i, k);</span><br><span class="line">						<span class="comment">//add</span></span><br><span class="line">						board[i][k] += board[i][j];</span><br><span class="line">						board[i][j] = <span class="number">0</span>;</span><br><span class="line">						<span class="comment">//add score</span></span><br><span class="line">						score += board[i][k];</span><br><span class="line">						updateScore(score);</span><br><span class="line">						hasConflicted[i][k] = <span class="literal">true</span>;</span><br><span class="line">						<span class="keyword">continue</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">setTimeout</span>(updateBoardView, <span class="number">200</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当左按钮按下后，首先判断能否进行左移动，不行的话，直接退出函数，可以的话，往下执行，使用双层for循环，判断<br>(1). 当前格子是否为空且往左边移动的过程中没有别的数字挡着道路，成立的话，执行左移<br>(2). 当前格子与其左边格子的数字是否相同，且中间无别的内容，使得话，左移并且执行加法操作，合并数字<br>当函数执行结束后，重新渲染页面<br>2.触摸事件监听<br>触摸事件的监听主要是针对移动端而添加的<br>主要是通过touch事件完成，在touchstart中记录触摸的起点坐标event.touches[0].pageX和event.touches[0].pageY;在touchend中记录触摸结束点的坐标：event.changedTouches[0].pageX和event.changedTouches[0].pageY，然后进行运算，比较差值，得到deltaX和deltaY，可以分为以下四种情况：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">Math</span>.abs(delatX) &gt;= <span class="built_in">Math</span>.abs(delatY))&#123;</span><br><span class="line">	<span class="comment">//x</span></span><br><span class="line">	<span class="keyword">if</span>(delatX &gt; <span class="number">0</span>)&#123;</span><br><span class="line">		<span class="comment">//move right</span></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">//move left</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="comment">//y</span></span><br><span class="line">	<span class="keyword">if</span>(delatY &gt; <span class="number">0</span>)&#123;</span><br><span class="line">		<span class="comment">//move down</span></span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="comment">//move up</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>即，通过比较x和y的大小确定在哪个轴上面移动，然后根据值得正负判断具体的方向。动作执行后的响应与PC端是一致的。</p>
+<h3 id="四、一些细节"><a href="#四、一些细节" class="headerlink" title="四、一些细节"></a>四、一些细节</h3><ol>
+<li>游戏结束的判断，当四个方向都不能移动，且没有空格子时游戏结束</li>
+<li>得分的处理，设置一个全局的变量score，在执行移动时，一旦发生相加操作，将相加的数值作为分数加入score中</li>
+<li>动画的处理，通过jQuery的aninate函数完成</li>
+</ol>
+<h3 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h3><p>游戏开发的过程中，首要的事情就是搞懂游戏的逻辑以及核心是什么，在2048中，逻辑就是响应用户的操作，进行不同的反馈，核心为，键盘按下和手指滑动时的处理，是否能够移动，移动的方向，移动后是否需要对数字进行操作。在将移动的过程展示出来即可。</p>
+<p>最后，附上项目源码：<a target="_blank" rel="noopener" href="https://github.com/fenpho/resume/tree/master/works/games/2048">GitHub项目仓库 </a><br>项目预览：<a href="https://fenpho.github.io/resume/works/games/2048/">点击我</a></p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2018/03/22/%E5%8E%9F%E7%94%9Fjs%E4%B9%8B%E5%9B%9B%E6%AD%A5%E8%B5%B0%E6%90%9E%E5%AE%9AAjax/" style="float: left;">
+        ← 原生js之四步走搞定Ajax
+    </a>
+    
+    
+    <a class="pull-right" href="/2017/12/16/%E5%89%8D%E7%AB%AF%E4%BD%9C%E5%93%81%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2%E5%BC%80%E5%8F%91-%E6%90%BA%E7%A8%8B%E7%BD%91/">
+        前端作品集（二）移动端页面开发--携程网 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2017<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Fenpho. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="#" style="color: #767D84">Fenpho</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/fenpho" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

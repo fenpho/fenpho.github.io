@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+Theme By Fenpho
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>Vue状态管理之Vuex | Fenpho</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Fenpho">
+    <meta name="author" content="Fenpho">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Fenpho" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">首页</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">归档</a></li>
+            <!-- Dropdown Menu -->
+			 
+            
+        	<li>
+        		<a class="sb-toggle-submenu">分类<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/前端漫谈/" class="animsition-link">前端漫谈<small>(18)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">友情链接<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="https://fenpho.github.io/" class="animsition-link">Fenpho</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about" class="animsition-link" title="about">关于</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">订阅</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Fenpho</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/fenpho" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">更多</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-12-27T13:22:09.000Z" itemprop="datePublished">
+          2018-12-27
+      </time>
+    
+    
+    | 
+    <a href='/tags/Vue-Vuex/'>Vue, Vuex</a>
+    
+    
+</span>
+                <h1>Vue状态管理之Vuex</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h3 id="一、什么是Vuex"><a href="#一、什么是Vuex" class="headerlink" title="一、什么是Vuex"></a>一、什么是Vuex</h3><p>Vuex 是一个专为 Vue.js 应用程序开发的<strong>状态管理模式</strong>。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具<a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-devtools">devtools extension</a>，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。   </p>
+<p>这个状态自管理应用包含以下几个部分：     </p>
+<ul>
+<li>  <strong>state</strong>，驱动应用的数据源；</li>
+<li>  <strong>view</strong>，以声明方式将<strong>state</strong>映射到视图；</li>
+<li>  <strong>actions</strong>，响应在<strong>view</strong>上的用户输入导致的状态变化。</li>
+</ul>
+<p>以下是一个表示“单向数据流”理念的极简示意：</p>
+<p><img src="1.png" alt="单项数据流"></p>
+<p>更复杂的情况</p>
+<ul>
+<li> 多个视图依赖于同一状态。</li>
+<li> 来自不同视图的行为需要变更同一状态。<br><img src="2.png" alt="实际数据流"></li>
+</ul>
+<h3 id="二、什么情况下我应该使用-Vuex？"><a href="#二、什么情况下我应该使用-Vuex？" class="headerlink" title="二、什么情况下我应该使用 Vuex？"></a>二、什么情况下我应该使用 Vuex？</h3><p>虽然 Vuex 可以帮助我们管理共享状态，但也附带了更多的概念和框架。这需要对短期和长期效益进行权衡。</p>
+<p>如果您不打算开发大型单页应用，使用 Vuex 可能是繁琐冗余的。确实是如此——如果您的应用够简单，您最好不要使用 Vuex。一个简单的</p>
+<p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/components.html#%E9%9D%9E%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1">global event bus</a></p>
+<p>就足够您所需了。但是，如果您需要构建是一个中大型单页应用，您很可能会考虑如何更好地在组件外部管理状态，Vuex 将会成为自然而然的选择。引用 Redux 的作者 Dan Abramov 的话说就是：</p>
+<blockquote>
+<p>Flux 架构就像眼镜：您自会知道什么时候需要它。</p>
+</blockquote>
+<h3 id="三、安装"><a href="#三、安装" class="headerlink" title="三、安装"></a>三、安装</h3><p>首先需要创建一个基于Vue的工程，通常你可以这样做：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 全局安装 vue-cli</span><br><span class="line">$ npm install --<span class="built_in">global</span> vue-cli</span><br><span class="line"># 创建一个基于 webpack 模板的新项目</span><br><span class="line">$ vue init webpack my-project</span><br><span class="line"># 安装依赖，走你</span><br><span class="line">$ cd my-project</span><br><span class="line">$ npm install</span><br><span class="line">$ npm run dev</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li> 利用npm包管理工具，进行安装 vuex。在控制命令行中输入下边的命令就可以了。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vuex --save</span><br></pre></td></tr></table></figure>
+
+<p>要注意的是这里一定要加上 –save，因为你这个包我们在生产环境中是要使用的。</p>
+<p>通过简单的依赖安装操作，vuex就算引用成功了，接下来我们就可以尽情的玩耍了。<br>一个简单的示例，在main.js文件中输入如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line"></span><br><span class="line">Vue.use(Vuex)</span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    count: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    increment (state) &#123;</span><br><span class="line">      state.count++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">store.commit(<span class="string">&#x27;increment&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* eslint-disable no-new */</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">  template: <span class="string">`&lt;div&gt;&#123;&#123; count &#125;&#125;&lt;/div&gt;`</span>,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    count () &#123;</span><br><span class="line">      <span class="keyword">return</span> store.state.count</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>运行后可以看到页面上显示一个1，即函数increment已经正确的执行，count由初始的0自加后变为1输出，<br>需要指出的是，我们通过提交 mutation 的方式，而非直接改变 store.state.count，是因为我们想要更明确地追踪到状态的变化。</p>
+<p>通常我们不会这样去使用它，更好的使用方法是：</p>
+<ol>
+<li>新建一个store文件夹（这个不是必须的），并在文件夹下新建store.js文件，文件中引入我们的vue和vuex。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>在store.js文件中，用Vue.use对vuex进行引用。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.use(Vuex);</span><br></pre></td></tr></table></figure>
+
+<p>4.在main.js 中引入新建的vuex文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store/store&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>Vuex 通过 store 选项，提供了一种机制将状态从根组件“注入”到每一个子组件中（需调用 Vue.use(Vuex)，通过在根实例中注册 store 选项，该 store 实例会注入到根组件下的所有子组件中，且子组件能通过 this.$store 访问到。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App&#x27;</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store/store&#x27;</span></span><br><span class="line"></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* eslint-disable no-new */</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">  router,</span><br><span class="line">  store,</span><br><span class="line">  template: <span class="string">&#x27;&lt;App/&gt;&#x27;</span>,</span><br><span class="line">  components: &#123; App &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h3><ol>
+<li>现在我们store.js文件里增加一个常量对象。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">state: &#123;</span><br><span class="line">  count: <span class="number">1</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>用export default 封装代码，让外部可以引用。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  name: <span class="string">&#x27;store&#x27;</span>,</span><br><span class="line">  state: &#123;</span><br><span class="line">    count: <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>新建一个Vue的测试模板，位置在components文件夹下，名字随便起，我这里叫count.vue。在模板中我们使用输出count 的值（注意：由于前面已经将store注入到vue的实例中，故不需要再次引用）。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> &lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;h2&gt;&#123;&#123;msg&#125;&#125;&lt;/h2&gt;</span><br><span class="line">        &lt;hr/&gt;</span><br><span class="line">        &lt;h3&gt;&#123;&#123;$store.state.count&#125;&#125;&lt;/h3&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      msg: <span class="string">&#x27;Hello Vuex&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    count () &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.$store.state.count</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>在store.js文件中加入两个改变state的方法。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mutations: &#123;</span><br><span class="line">  increment (state) &#123;</span><br><span class="line">    state.count += <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  decrement (state) &#123;</span><br><span class="line">    state.count -= <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>在test.vue模板中加入两个按钮，并调用mutations中的方法。</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;$store.commit(&#x27;increment&#x27;)&quot;</span>&gt;</span>+<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;$store.commit(&#x27;decrement&#x27;)&quot;</span>&gt;</span>-<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>在router文件夹下的index.js中引用文件，定义对应的路由，运行程序并进入该界面，点击按钮查看效果</li>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">&#x27;/count&#x27;</span>,</span><br><span class="line">  name: <span class="string">&#x27;Count&#x27;</span>,</span><br><span class="line">  component: Count</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="五、state访问状态对象"><a href="#五、state访问状态对象" class="headerlink" title="五、state访问状态对象"></a>五、state访问状态对象</h3><blockquote>
+<p>state，这个就是我们说的访问状态对象，它就是我们SPA（单页应用程序）中的共享值。</p>
+</blockquote>
+<p>访问状态对象赋值给内部对象，也就是把stroe.js中的值，赋值给我们模板里data中的值。有三种赋值方式</p>
+<ol>
+<li>通过computed的计算属性直接赋值<br>computed属性可以在输出前，对data中的值进行改变，我们就利用这种特性把store.js中的state值赋值给我们模板中的data值。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">computed:&#123;</span><br><span class="line">    <span class="function"><span class="title">count</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.$store.state.count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里需要注意的是return this.$store.state.count这一句，一定要写this，要不你会找不到$store的。这种写法很好理解，但是写起来是比较麻烦的，那我们来看看第二种写法。</p>
+<ol start="2">
+<li>通过mapState的对象来赋值</li>
+</ol>
+<p>我们首先要用import引入mapState。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;mapState&#125; <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后还在computed计算属性里写如下代码：（根据需要选用一种方法即可）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">computed: mapState(&#123;</span><br><span class="line">  <span class="comment">// 箭头函数可使代码更简练</span></span><br><span class="line">  count: <span class="function"><span class="params">state</span> =&gt;</span> state.count,   <span class="comment">// es6写法，function (state) &#123; return state.count &#125;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 传字符串参数 &#x27;count&#x27; 等同于 `state =&gt; state.count`</span></span><br><span class="line">  countAlias: <span class="string">&#x27;count&#x27;</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 为了能够使用 `this` 获取局部状态，必须使用常规函数</span></span><br><span class="line">  countPlusLocalState (state) &#123;</span><br><span class="line">    <span class="keyword">return</span> state.count + <span class="built_in">this</span>.localCount</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>当映射的计算属性的名称与 state 的子节点名称相同时，我们也可以给 mapState 传一个字符串数组。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">computed: mapState([</span><br><span class="line">  <span class="comment">// 映射 this.count 为 store.state.count</span></span><br><span class="line">  <span class="string">&#x27;count&#x27;</span></span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+<ol>
+<li>还可以采用简化写法（个人比较喜欢这种写法本质上和第三种是一个意思，后面的mutations中也有类似的写法）</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用对象展开运算符将此对象混入到外部对象中</span></span><br><span class="line">...mapState(&#123;</span><br><span class="line">  num: <span class="string">&#x27;count&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这个算是最简单的写法了，在实际项目开发当中也经常这样使用。</p>
+<h3 id="六、Mutations"><a href="#六、Mutations" class="headerlink" title="六、Mutations"></a>六、Mutations</h3><p>我们已经定义并且拿到了state的值，那么如何去改变他们的状态呢？<br>更改 Vuex 的 store 中的状态的唯一方法是提交 mutation。<br>每个 mutation 都有一个字符串的 事件类型 (type) 和 一个 回调函数 (handler)。这个回调函数就是我们实际进行状态更改的地方，并且它会接受 state 作为第一个参数</p>
+<ol>
+<li>修改状态<br>Vuex提供了commit方法来修改状态，前边我们在给按钮添加点击事件时已经使用过该方法了，代码如下。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click=<span class="string">&quot;$store.commit(&#x27;increment&#x27;)&quot;</span>&gt;+&lt;/button&gt;</span><br><span class="line">&lt;button @click=<span class="string">&quot;$store.commit(&#x27;decrement&#x27;)&quot;</span>&gt;-&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<p>store.js文件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mutations: &#123;</span><br><span class="line">  increment (state) &#123;</span><br><span class="line">    state.count += <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  decrement (state) &#123;</span><br><span class="line">    state.count -= <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>传值：这只是一个最简单的修改状态的操作，在实际项目中我们常常需要在修改状态时传值。比如上边的例子，是我们每次只加1，而现在我们要通过所传的值进行相加。其实我们只需要在Mutations里再加上一个参数，这个参数又称为mutation 的 载荷（payload），并在commit的时候传递就就可以了。我们来看具体代码：</p>
+<p>现在store.js文件里给increment 方法加上一个参数n。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mutations: &#123;</span><br><span class="line">  increment (state, n) &#123;</span><br><span class="line">    state.count += n</span><br><span class="line">  &#125;,</span><br><span class="line">  decrement (state) &#123;</span><br><span class="line">    state.count -= <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在count.vue里修改按钮的commit( )方法传递的参数，我们传递10，意思就是每次加10。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;</span><br><span class="line">  &lt;button @click=<span class="string">&quot;$store.commit(&#x27;increment &#x27;,10)&quot;</span>&gt;+&lt;/button&gt;</span><br><span class="line">  &lt;button @click=<span class="string">&quot;$store.commit(&#x27;decrement &#x27;)&quot;</span>&gt;-&lt;/button&gt;</span><br><span class="line">&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<p>在大多数情况下，载荷应该是一个对象，这样可以包含多个字段并且记录的 mutation 会更易读：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mutations: &#123;</span><br><span class="line">  increment (state, payload) &#123;</span><br><span class="line">    state.count += payload.amount</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">store.commit(<span class="string">&#x27;increment&#x27;</span>, &#123;</span><br><span class="line">  amount: <span class="number">10</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>更推荐的写法：对象风格的提交方式<br>提交 mutation 的另一种方式是直接使用包含 type 属性的对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">store.commit(&#123;</span><br><span class="line">  type: <span class="string">&#x27;increment&#x27;</span>,</span><br><span class="line">  amount: <span class="number">10</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>上面的写法还是复杂了点，有没有更简单的呢，答案是肯定的，模板获取Mutations方法</li>
+</ol>
+<p>实际开发中我们也不喜欢看到$store.commit( )这样的方法出现，我们希望跟调用模板里的方法一样调用。</p>
+<p>例如：@click=”reduce” 就和没引用vuex插件一样。要达到这种写法，只需要简单的两部就可以了：</p>
+<p>1）、在模板count.vue里用import 引入我们的mapMutations：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; mapState,mapMutations &#125; <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>2）、在模板的&lt;\script&gt;标签里添加methods属性，并加入mapMutations</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">methods:mapMutations([</span><br><span class="line">  <span class="string">&#x27;increment &#x27;</span></span><br><span class="line">]),</span><br></pre></td></tr></table></figure>
+
+<p>通过上边两部，我们已经可以在模板中直接使用我们的reduce或者add方法了，就像下面这样。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click=<span class="string">&quot;increment(&#123;amount: 10&#125;)&quot;</span>&gt;-&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<p>同state一样，该写法也可以利用对象展开运算符进行简化</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...mapMutations(&#123;</span><br><span class="line">  add: <span class="string">&#x27;increment&#x27;</span> <span class="comment">// 将 `this.add()` 映射为 `this.$store.commit(&#x27;increment&#x27;)`</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>调用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click=<span class="string">&quot;add(&#123;amount: 10&#125;)&quot;</span>&gt;-&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="七、getters计算过滤操作"><a href="#七、getters计算过滤操作" class="headerlink" title="七、getters计算过滤操作"></a>七、getters计算过滤操作</h3><p>getters从表面是获得的意思，可以把他看作在获取数据之前进行的一种再编辑,相当于对数据的一个过滤和加工。你可以把它看作store.js的计算属性。</p>
+<ol>
+<li>getters基本用法：<br>比如我们现在要对store.js文件中的count进行一个计算属性的操作，就是在它输出前，给它加上100.我们首先要在store.js里用const声明我们的getters属性。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">getters: &#123;</span><br><span class="line">  count: <span class="function"><span class="params">state</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (state.count += <span class="number">100</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+在store.js里的配置算是完成了，我们需要到模板页对computed进行配置。在vue 的构造器里边只能有一个computed属性，如果你写多个，只有最后一个computed属性可用，所以要对上节课写的computed属性进行一个改造。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...mapState(&#123;</span><br><span class="line">  name: <span class="string">&#x27;name&#x27;</span>,</span><br><span class="line">  count () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.$store.getters.count</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h3&gt;&#123;&#123;count&#125;&#125;&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，你写了这个配置后，在每次count 的值发生变化的时候，都会进行加100的操作。</p>
+<ol start="2">
+<li>用mapGetters简化模板写法</li>
+</ol>
+<p>我们都知道state和mutations都有map的引用方法把我们模板中的编码进行简化，我们的getters也是有的，我们来看一下代码。<br>首先用import引入我们的mapGetters</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; mapState, mapMutations, mapGetters &#125; <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>在computed属性中加入mapGetters</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...mapGetters(&#123;</span><br><span class="line">    counted: <span class="string">&#x27;count&#x27;</span></span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="八、actions异步修改状态"><a href="#八、actions异步修改状态" class="headerlink" title="八、actions异步修改状态"></a>八、actions异步修改状态</h3><p>actions和之前讲的Mutations功能基本一样，不同点是，actions是异步的改变state状态，而Mutations是同步改变状态。</p>
+<ol>
+<li>在store.js中声明actions<br>actions是可以调用Mutations里的方法的，我们还是继续在上节课的代码基础上进行学习，在actions里调用increment和decrement两个方法。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">actions: &#123;</span><br><span class="line">  incrementAsync (&#123; commit &#125;, payload) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      commit(<span class="string">&#x27;increment&#x27;</span>, payload)</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  decrementAction (context) &#123;</span><br><span class="line">    context.commit(<span class="string">&#x27;decrement&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在actions里写了两个方法incrementAction 和decrementAction ，在方法体里，我们都用commit调用了Mutations里边的方法。细心的小伙伴会发现这两个方法传递的参数也不一样。</p>
+<ul>
+<li>  ontext：上下文对象，这里你可以理解成store本身。</li>
+<li>  {commit}：直接把commit对象传递过来，可以让方法体逻辑和代码更清晰明了。</li>
+</ul>
+<ol start="2">
+<li>模板中的使用</li>
+</ol>
+<p>我们需要在count.vue模板中编写代码，让actions生效。我们先复制两个以前有的按钮，并改成我们的actions里的方法名，分别是：incrementAction 和decrementAction 。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click=<span class="string">&quot;incrementAction(&#123;amount: 10&#125;)&quot;</span>&gt;+action&lt;/button&gt;</span><br><span class="line">&lt;button @click=<span class="string">&quot;$store.commit(&#x27;decrementAction&#x27;)&quot;</span>&gt;-action&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<p>改造一下我们的methods方法，首先还是用扩展运算符把mapMutations和mapActions加入。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">methods:&#123;</span><br><span class="line">  ...mapActions(&#123;</span><br><span class="line">      incrementAsync: <span class="string">&#x27;incrementAsync&#x27;</span>, <span class="comment">// 将 `this.add()` 映射为 `this.$store.commit(&#x27;increment&#x27;)`</span></span><br><span class="line">    decrementAction: <span class="string">&#x27;decrementAction&#x27;</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>你还要记得用import把我们的mapActions引入才可以使用。</p>
+<h3 id="九、module模块组"><a href="#九、module模块组" class="headerlink" title="九、module模块组"></a>九、module模块组</h3><p>随着项目的复杂性增加，我们共享的状态越来越多，这时候我们就需要把我们状态的各种操作进行一个分组，分组后再进行按组编写。那今天我们就学习一下module：状态管理器的模块组操作。</p>
+<ol>
+<li>声明模块组：</li>
+</ol>
+<p>在vuex/store.js中声明模块组，我们还是用我们的const常量的方法声明模块组。代码如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> moduleA=&#123;</span><br><span class="line">    state,mutations,getters,actions</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>声明好后，我们需要修改原来 Vuex.Stroe里的值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    modules:&#123;<span class="attr">a</span>:moduleA&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在模板中使用</li>
+</ol>
+<p>现在我们要在模板中使用count状态，要用插值的形式写入。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h3&gt;&#123;&#123;$store.state.a.count&#125;&#125;&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果想用简单的方法引入，还是要在我们的计算属性中rutrun我们的状态。写法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">computed:&#123;</span><br><span class="line">    <span class="function"><span class="title">count</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.$store.state.a.count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2019/02/23/Node%E5%85%A5%E9%97%A8%EF%BC%8C%E4%BB%8EHello-world%E5%88%B0%E9%AB%98%E7%BA%A7%E5%85%A5%E9%97%A8/" style="float: left;">
+        ← Node入门，从Hello world到高级入门
+    </a>
+    
+    
+    <a class="pull-right" href="/2018/09/26/%E5%89%8D%E7%AB%AF%E5%BF%85%E5%A4%87%E6%8A%80%E8%83%BD%E4%B9%8BPhotosh%E5%88%87%E5%9B%BE/">
+        前端必备技能之Photosh切图 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2017<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Fenpho. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="#" style="color: #767D84">Fenpho</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/fenpho" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

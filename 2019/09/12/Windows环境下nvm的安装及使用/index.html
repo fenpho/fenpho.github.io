@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+Theme By Fenpho
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>Windows环境下nvm的安装及使用 | Fenpho</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Fenpho">
+    <meta name="author" content="Fenpho">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Fenpho" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">首页</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">归档</a></li>
+            <!-- Dropdown Menu -->
+			 
+            
+        	<li>
+        		<a class="sb-toggle-submenu">分类<span class="sb-caret"></span></a>
+            	<ul class="sb-submenu">
+				  	
+				    <li><a href="/categories/前端漫谈/" class="animsition-link">前端漫谈<small>(18)</small></a></li>
+				    
+				</ul>
+        	</li>
+			
+            
+            <li>
+                <a class="sb-toggle-submenu">友情链接<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="https://fenpho.github.io/" class="animsition-link">Fenpho</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about" class="animsition-link" title="about">关于</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">订阅</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Fenpho</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/fenpho" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">更多</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2019-09-12T14:16:45.000Z" itemprop="datePublished">
+          2019-09-12
+      </time>
+    
+    
+    | 
+    <a href='/tags/Node-Javascript/'>Node, Javascript</a>
+    
+    
+</span>
+                <h1>Windows环境下nvm的安装及使用</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>首先需要说明的是： nvm不支持Windows！！！，但是有替代品，也就是nvm-windows，类似git和git for windows一样。</p>
+<p>第一步：<a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">点击下载 nvm</a>，打开该项目在github上面的下载页面后，我们选择latest中的第一个：nvm-noinstall.zip，点击下载。</p>
+<p><img src="1.png" alt="image.png"></p>
+<p>下载完成后解压到一个地方，比如: C:\dev\nvm 里面的文件列表是这样的：elevate.cmd、elevate.vbs、install.cmd、LICENSE、nvm.exe</p>
+<ul>
+<li><p>  备注：windows下要设置显示文件类型的扩展名，这样才能看到上述文件的后缀</p>
+</li>
+<li><p>双击 install.cmd 然后会让你输入”压缩文件解压或拷贝到的一个绝对路径” 先不用管它，直接回车，成功后，会在C盘的根目录生成一个settings.txt的文本文件，把这个文件剪切到C:\dev\nvm目录中，然后我们把它的内容修改成这样：</p>
+<blockquote>
+<p>root: C:\dev\nvm <br>path: C:\dev\nodejs <br>arch: 64 <br>proxy: none <br>node_mirror: <a target="_blank" rel="noopener" href="http://npm.taobao.org/mirrors/node/">http://npm.taobao.org/mirrors/node/</a><br>npm_mirror: <a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/npm/">https://npm.taobao.org/mirrors/npm/</a></p>
+</blockquote>
+</li>
+<li><p>  然后我们开始配置环境变量了<br>右键点击我的电脑</p>
+</li>
+</ul>
+<p><img src="2.png" alt="image.png"></p>
+<p>点击属性，在弹出的页面中点击高级系统设置</p>
+<p><img src="3.png" alt="image.png"></p>
+<p>弹出如上图所示窗口，点击右下角的环境变量即可。</p>
+<p>因为刚刚点击了install.cmd的文件，那么会在环境变量的系统变量中，生成两个环境变量：<code>NVM_HOME</code> 和 <code>NVM_SYMLINK</code> 我们开始修改这两个变量名的变量值：<code>NVM_HOME</code>的变量值为：<code>C:\dev\nvm</code>； <code>NVM_SYMLINK</code>的变量值为：<code>C:\dev\nodejs</code></p>
+<ul>
+<li>  观察Path看它的值是否包含C:\dev\nvm;或者是C:\dev\nodejs，如果有的话，把他们删掉，没有的话更好，我们自己来配置，在Path中新增两个值分别为<blockquote>
+<p>%NVM_HOME%<br>%NVM_SYMLINK%</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="4.png" alt="image.png"></p>
+<ul>
+<li><p>  打开一个cmd窗口输入命令：<code>nvm v</code> ，那么我们会看到当前nvm的版本信息。然后我们可以安装nodejs了。</p>
+</li>
+<li><p>  继续输入命令：<code>nvm install latest</code> 如果网络畅通，我们会看到正在下载的提示，下载完成后 会让你use那个最新的node版本。</p>
+</li>
+<li><p>  如果你是第一次下载，在use之前，<code>C:\dev</code>目录下是没有nodejs这个文件夹的，在输入比如： <code>nvm use 5.11.0</code> 之后，你会发现，<code>C:\dev</code>目录下多了一个nodejs文件夹，这个文件夹不是单纯的文件夹，它是一个快捷方式，指向了 <code>C:\dev\nvm</code> 里的 v5.11.0 文件夹。</p>
+</li>
+<li><p>  同样的咱们可以下载其他版本的nodejs，这样通过命令:<code>nvm use 版本号</code> 比如：<code>nvm use 5.11.0</code>就可以轻松实现版本切换了。</p>
+</li>
+<li><p>  备注： 如果你的电脑系统是32 位的，那么在下载nodejs版本的时候，一定要指明 32 如： <code>nvm install 5.11.0 32</code> 这样在32位的电脑系统中，才可以使用，默认是64位的。</p>
+</li>
+</ul>
+<h2 id="npm的安装"><a href="#npm的安装" class="headerlink" title="npm的安装"></a><strong>npm的安装</strong></h2><blockquote>
+<p>首先 npm是什么？ <br>npm有两层含义，第一是npm这个开源的模块登记和管理系统，也就是这个站点：<a target="_blank" rel="noopener" href="https://www.npmjs.com/">https://www.npmjs.com</a>。 <br>第二个指的是 nodejs package manager 也就是nodejs的包管理工具。我们主要说的就是这一个。 <br>在每个版本的nodejs中，都会自带npm，为了统一起见，我们安装一个全局的npm工具，这个操作很有必要，因为我们需要安装一些全局的其他包，不会因为切换node版本造成原来下载过的包不可用。</p>
+</blockquote>
+<ul>
+<li><p>首先我们进入命令模式，输入 <code>npm config set prefix &quot;C:\dev\nvm\npm&quot;</code> 回车，这是在配置npm的全局安装路径，然后在用户文件夹下会生成一个.npmrc的文件，用记事本打开后可以看到如下内容：</p>
+<blockquote>
+<p>prefix=C:\dev\nvm\npm</p>
+</blockquote>
+</li>
+<li><p>  然后继续在命令中输入： <code>npm install npm -g</code> 回车后会发现正在下载npm包，在<code>C:\dev\nvm\npm</code>目录中可以看到下载中的文件，以后我们只要用npm安装包的时候加上 <code>-g</code> 就可以把包安装在我们刚刚配置的全局路径下了。</p>
+</li>
+<li><p>  我们为这个npm配置环境变量： 变量名为：NPM_HOME，变量值为 ：<code>C:\dev\nvm\npm</code></p>
+</li>
+<li><p>  在Path的最前面添加<code>;%NPM_HOME%</code>，注意了，这个一定要添加在 <code>%NVM_SYMLINK%</code>之前，所以我们直接把它放到Path的最前面</p>
+</li>
+<li><p>  最后我们新打开一个命令窗口，输入<code>npm -v</code> ,此时我们使用的就是我们统一下载的npm包了。</p>
+</li>
+<li><p>同样的我们还可以安装cnpm工具，它是中国版的npm镜像库，地址在这里：<a target="_blank" rel="noopener" href="https://cnpmjs.org/">https://cnpmjs.org/</a>，也是npm官方的一个拷贝，因为我们和外界有一堵墙隔着，所以用这个国内的比较快，淘宝也弄了一个和npm一样的镜像库，<a target="_blank" rel="noopener" href="http://npm.taobao.org/">http://npm.taobao.org/</a>，它和官方的npm每隔10分钟同步一次。安装方式：</p>
+<ul>
+<li>  <code>npm install -g cnpm --registry=http://r.cnpmjs.org</code></li>
+<li>  或者用淘宝的<code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
+<li>  安装好了cnpm后，直接执行<code>cnpm install 包名</code>比如：<code>cnpm install bower -g</code> 就可以了。<code>-g</code>只是为了把包安装在全局路径下。如果不全局安装，也可以在当前目录中安装，不用<code>-g</code>就可以了。</li>
+</ul>
+</li>
+</ul>
+<h2 id="nrm-的安装"><a href="#nrm-的安装" class="headerlink" title="nrm 的安装"></a><strong>nrm 的安装</strong></h2><blockquote>
+<p>什么是nrm？ <br>nrm就是npm registry manager 也就是npm的镜像源管理工具，有时候国外资源太慢，那么我们可以用这个来切换镜像源。 <br>我们只要通过这个命令: <code>npm install -g nrm</code> 就可以实现安装。 <br>注意<code>-g</code>可以直接放到install的后面，我们以后也最好这样用，因为这样用，我们可以在cmd中上下箭头切换最近命令的时候，容易修改，更方便操作。安装完成后，我们就可以使用了。</p>
+</blockquote>
+<ul>
+<li>  命令：<code>nrm ls</code> 用于展示所有可切换的镜像地址</li>
+<li>  命令：<code>nrm use cnpm</code> 我们这样就可以直接切换到cnpm上了。当然也可以按照上面罗列的其他内容进行切换</li>
+</ul>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2020/04/07/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AF%BC%E8%88%AA%E4%B8%8D%E7%94%9F%E6%95%88%E5%A4%84%E7%90%86/" style="float: left;">
+        ← 微信小程序导航不生效处理
+    </a>
+    
+    
+    <a class="pull-right" href="/2019/02/23/Node%E5%85%A5%E9%97%A8%EF%BC%8C%E4%BB%8EHello-world%E5%88%B0%E9%AB%98%E7%BA%A7%E5%85%A5%E9%97%A8/">
+        Node入门，从Hello world到高级入门 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2017<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Fenpho. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="#" style="color: #767D84">Fenpho</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/fenpho" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>
